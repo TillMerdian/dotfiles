@@ -4,7 +4,7 @@ return {
     version = '*',
     opts = {
 	    direction = 'float',
-	    open_mapping = '<leader>td',
+	    open_mapping = '<F12>',
     },
     config = true,
   },

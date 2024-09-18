@@ -4,6 +4,26 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set({ 'v', 'n' }, 'H', '<Home>', { desc = 'move to start of line' })
+vim.keymap.set({ 'v', 'n' }, 'L', '<End>', { desc = 'move to end of line' })
+
+--movement in insert mode
+vim.keymap.set('i', '<C-S-h>', '<esc>^i', { desc = 'Go to the start of the line' })
+vim.keymap.set('i', '<C-S-l>', '<End>', { desc = 'Go to the end of the line' })
+vim.keymap.set('i', '<C-w>', '<esc>lwi', { desc = 'Go a word further' })
+vim.keymap.set('i', '<C-b>', '<esc>lbi', { desc = 'Go a word backward' })
+vim.keymap.set('i', '<C-e>', '<esc>lea', { desc = 'Go a to next word end' })
+vim.keymap.set('i', '<C-h>', '<Left>', { desc = 'Move left' })
+vim.keymap.set('i', '<C-j>', '<Down>', { desc = 'Move down' })
+vim.keymap.set('i', '<C-k>', '<Up>', { desc = 'Move up' })
+vim.keymap.set('i', '<C-l>', '<Right>', { desc = 'Move right' })
+
+-- move to window
+--  See `:help wincmd` for a list of all window commands
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
