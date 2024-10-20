@@ -28,7 +28,6 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "tsserver",
                 "clangd",
             },
             handlers = {
@@ -56,20 +55,21 @@ return {
                             }
                         }
                     }
-		end,
+		        end,
 
-		["rust_analyzer"] = function()
+                ["rust_analyzer"] = function()
                     local lspconfig = require("lspconfig")
-		    lspconfig.rust_analyzer.setup{
-  		        settings = {
-    		    	    ['rust-analyzer'] = {
-      		    		check = {
-                        	    command = 'clippy',
-		    		}
-  		     	    }
-		    	}
-		    }
+                    lspconfig.rust_analyzer.setup{
+                        settings = {
+                            ['rust-analyzer'] = {
+                                check = {
+                                    command = 'clippy',
+                                }
+                            }
+                        }
+                    }
                 end,
+
             }
         })
 

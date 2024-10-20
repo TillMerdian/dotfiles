@@ -55,3 +55,10 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- mapping for leap.nvim
+vim.keymap.set('n',        's', '<Plug>(leap)')
+vim.keymap.set('n',        'S', '<Plug>(leap-from-window)')
+vim.keymap.set({'x', 'o'}, 's', '<Plug>(leap-forward)')
+vim.keymap.set({'x', 'o'}, 'S', '<Plug>(leap-backward)')
+
