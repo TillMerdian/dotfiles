@@ -29,6 +29,7 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "clangd",
+                "pyright",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -70,8 +71,29 @@ return {
                     }
                 end,
 
+                ["pyright"] = function ()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                analysis = {
+                                    autoImportCompletions = true,
+                                    typeCheckingMode = "basic",
+                                    diagnosticMode = "openFilesOnly",
+                                }
+                            }
+                        }
+                    }
+                end,
             }
         })
+
+        require('lspconfig').clangd.setup{
+            init_options = {
+                fallbackFlags = {'--std=c++20', '-fdeclspec'}
+            },
+        }
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
